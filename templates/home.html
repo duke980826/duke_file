@@ -18,6 +18,46 @@
                 <button id="logout-btn">登出</button>
             </div>
         </header>
+        <main>
+            <div class="view-toggle">
+                <a href="?view=student">
+                    <button class="{% if view_mode == 'student' %}active{% endif %}">
+                        Student View
+                    </button>
+                </a>
+                <a href="?view=class">
+                    <button class="{% if view_mode == 'class' %}acrive{% endif %}">
+                        Class View
+                    </button>
+                </a>
+            </div>
+            {% if view_mode == 'student' %}
+            <table class = "student-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>年級</th>
+                        <th>電話</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.student_id}}</td>
+                        <td>{{ student.name}}</td>
+                        <td>{{ student.grade}}</td>
+                        <td>{{ student.phone}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">尚無學生資料</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </main>
     <script src="{% static 'js/main.js' %}"></script>
     </body>
     
