@@ -9,7 +9,7 @@
     <body>
         <header>
             <div class="header-left">
-                <spac>Duke home</spac>
+                <span>Duke home</span>
             </div>
             <div class="header-right">
                 <span id="clock-date">0000/00/00</span>
@@ -26,7 +26,7 @@
                     </button>
                 </a>
                 <a href="?view=class">
-                    <button class="{% if view_mode == 'class' %}acrive{% endif %}">
+                    <button class="{% if view_mode == 'class' %}active{% endif %}">
                         Class View
                     </button>
                 </a>
@@ -56,6 +56,36 @@
                     {% endfor %}
                 </tbody>
             </table>
+            {% else %}
+            {% for class in classes %}
+            <section class = "class-section">
+                <h2>{{ class.name}}</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>年級</th>
+                            <th>電話</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for student in class.students.all %}
+                    <tr>
+                        <td>{{ student.student_id}}</td>
+                        <td>{{ student.name}}</td>
+                        <td>{{ student.grade}}</td>
+                        <td>{{ student.phone}}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">尚無學生資料</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </section>
+            {% endfor %}
             {% endif %}
         </main>
     <script src="{% static 'js/main.js' %}"></script>

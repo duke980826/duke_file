@@ -4,3 +4,42 @@ header {
     padding: 10px 20px;
     border-bottom: 1px solid black;
 }
+
+.view-toggle{
+    margin: 16px 20px;
+}
+
+.view-toggle button{
+    margin-right: 8px;
+    padding :6px 16px;
+    cursor: pointer;
+}
+
+.view-toggle button.active {
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.student-table {
+    border-collapse: collapse;
+    margin: 0 20px 20px;
+    width: calc(100% - 40px);
+}
+
+.student-table th,
+.student-table td{
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.student-table th{
+    background-color: #f0f0f0;
+}
+
+.class-section{
+    margin: 20px;
+}
+.class-section h2{
+    margin-bottom: 8px;
+}

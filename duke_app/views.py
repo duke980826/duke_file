@@ -10,7 +10,7 @@ def home(request):
     view_mode = request.GET.get('view' , 'student')
     
     if view_mode == 'class':
-        classes = Class.objectss.prefetch_related('students').all()
+        classes = Class.objects.prefetch_related('students').all()
         context = {
             'view_mode': 'class',
             'classes': classes,
@@ -24,5 +24,5 @@ def home(request):
         
     
     
-    return render(request, "home.html")
+    return render(request, "home.html" ,context)
 
