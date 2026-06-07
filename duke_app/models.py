@@ -7,7 +7,7 @@ class Student(models.Model):
     name = models.CharField(max_length=10)
     grade = models.IntegerField()
     phone = models.CharField(max_length=50)
-
+    amount_due = models.PositiveIntegerField(default=15000)
     def __str__(self):
         return f'{self.student_id} {self.name}'
 

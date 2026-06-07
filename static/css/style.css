@@ -43,3 +43,32 @@ header {
 .class-section h2{
     margin-bottom: 8px;
 }
+
+.receipt {
+    margin: 20px;
+    max-width: 500px;
+    border: 2px solid black;
+    padding: 24px;
+}
+
+.receipt h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt-table{
+    width:100%;
+    border-collapse: collapse;
+    margin-bottom:20px;
+}
+
+.receipt-table th,
+.receipt-table td{
+    border: 1px soled #aaa;
+    padding:8px 12px;
+}
+
+.receipt-table th{
+    background-color: #f0f0f0;
+    width: 35%
+}

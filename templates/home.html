@@ -39,6 +39,7 @@
                         <th>姓名</th>
                         <th>年級</th>
                         <th>電話</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
                         <td>{{ student.name}}</td>
                         <td>{{ student.grade}}</td>
                         <td>{{ student.phone}}</td>
+                        <td><a href="/students/{{ student.pk }}/receipt/" target="_blank">繳費單</a></td>
                     </tr>
                     {% empty %}
                     <tr>
@@ -76,6 +78,7 @@
                         <td>{{ student.name}}</td>
                         <td>{{ student.grade}}</td>
                         <td>{{ student.phone}}</td>
+                        <td><a href="/students/{{ student.pk }}/receipt/" target="_blank">繳費單</a></td>
                     </tr>
                     {% empty %}
                     <tr>

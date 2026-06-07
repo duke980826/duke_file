@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Student, Class
 # Create your views here.
@@ -25,4 +25,8 @@ def home(request):
     
     
     return render(request, "home.html" ,context)
+
+def student_receipt(request , pk):
+    student = get_object_or_404(Student, pk=pk)
+    return render(request,"student_receipt.html" , {"student":student})
 

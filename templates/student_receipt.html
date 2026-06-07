@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>繳費單 - {{ student.name }}</title>
+        <link rel="stylesheet" herf="{% static 'css/style.css' %}" />
+        <style>
+            @media print {
+                .no-print{
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div  class="no-print" style = "margin: 16px 20px">
+            <button onclick = "widnow.print()">列印</button>
+            <a href = "/home/"><button type = "button">返回</button></a>
+        </div>
+        <div class="receipt">
+            <h1>學生繳費單</h1>
+            <table class="receipt-table">
+                <tr>
+                    <th>年級</th>
+                    <td>{{ student.grade }}</td>
+                </tr>
+                <tr>
+                    <th>姓名</th>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <th>金額</th>
+                    <td>$ {{student.amount_due }}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
