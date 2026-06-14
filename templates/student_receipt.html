@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <title>繳費單 - {{ student.name }}</title>
-        <link rel="stylesheet" herf="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
         <style>
             @media print {
                 .no-print{
@@ -14,10 +14,13 @@
         </style>
     </head>
     <body>
+        {% if not pdf %}
         <div  class="no-print" style = "margin: 16px 20px">
-            <button onclick = "widnow.print()">列印</button>
+            <button onclick = "window.print()">列印</button>
             <a href = "/home/"><button type = "button">返回</button></a>
         </div>
+        {% endif %}
+        
         <div class="receipt">
             <h1>學生繳費單</h1>
             <table class="receipt-table">

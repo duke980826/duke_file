@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from duke_app.views import settings, home, student_receipt
+from duke_app.views import settings, home, student_receipt,student_receipt_pdf
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("settings/", settings),
     path("home/" , home),
     path('students/<int:pk>/receipt/', student_receipt),
+    path("students/<int:pk>/receipt/pdf/", student_receipt_pdf),
 ]
