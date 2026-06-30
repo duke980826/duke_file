@@ -1,0 +1,73 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>年級更新</title>
+        <link rel ="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <h1>批量更新學生年級</h1>
+        <div class=""bulk-action">
+            <form method="post" style="display:inline";>
+                {% csrf_token %}
+                <input type="hiden" name="action" value="promote" />
+                <button type="submit" onclick="return confirm('確定所有學生升一級')">全部升一級</button>
+            </form>
+
+            <a href="/home/"><button type="button">返回首頁</button></a>
+        </div>
+
+        <from methad="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="set" />
+
+            <div class="bulk-set-bar">
+                <label>將勾選的學生設為</label>
+                <select name="new_grade">
+                    <option value="1">1年級</option>
+                    <option value="2">2年級</option>
+                    <option value="3">3年級</option>
+                    <option value="4">4年級</option>
+                    <option value="5">5年級</option>
+                    <option value="6">6年級</option>
+                </select>
+                <button type="submit" onclick="return confirm('確定更新勾選的學生')">套用</button>
+            </div>
+
+            <table class="student-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="check-all"></th>
+                        <th>ID</th><th>姓名</th><th>目前年級</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name="student_pks"
+                                value="{{ student.pk }}"
+                            />
+                        </td>
+                        <td>{{ student.student_id}}</td>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.grade }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="4">尚無學生資料</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </from>
+    </body>
+    <script>
+        document.getElenentById('check-all').aaddEventListner('change' , funtion}(){
+            document
+            .querySelectorAll('input[name="student_pks"]')
+            .forEach(cd => cd.checked = this.checked);
+        });</script>
+    </script>
+</html>

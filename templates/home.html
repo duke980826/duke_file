@@ -30,6 +30,9 @@
                         Class View
                     </button>
                 </a>
+                {% if view_mode == 'student' %}
+                <a href="/students/grade-update/"><button>年級更新</button></a>
+                {% endif %}
             </div>
             {% if view_mode == 'student' %}
             <table class = "student-table">
@@ -49,7 +52,7 @@
                         <td>{{ student.name}}</td>
                         <td>{{ student.grade}}</td>
                         <td>{{ student.phone}}</td>
-                        <td><a href="/students/{{ student.pk }}/receipt/pdf/" target="_blank">繳費單</a></td>
+                        <td><a href="/students/{{ student.pk }}/receipt/" target="_blank">繳費單</a></td>
                     </tr>
                     {% empty %}
                     <tr>
@@ -78,7 +81,7 @@
                         <td>{{ student.name}}</td>
                         <td>{{ student.grade}}</td>
                         <td>{{ student.phone}}</td>
-                        <td><a href="/students/{{ student.pk }}/receipt/pdf/" target="_blank">繳費單</a></td>
+                        <td><a href="/students/{{ student.pk }}/receipt/" target="_blank">繳費單</a></td>
                     </tr>
                     {% empty %}
                     <tr>
